@@ -131,3 +131,5 @@
   "Delete duplicate lines in buffer and keep first occurrence."
   (interactive "*")
   (uniquify-all-lines-region (point-min) (point-max)))
+
+(defalias 'yes-or-no-p 'y-or-n-p)

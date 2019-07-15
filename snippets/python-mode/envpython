@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: envpython
+# key: envpython
+# --
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-

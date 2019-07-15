@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: noqa
+# key: noqa
+# --
+# -*- coding: utf-8 -*-
+# flake8: noqa

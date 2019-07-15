@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: bash
+# key: bash
+# --
+#!/bin/bash
+# -*- coding: utf-8 -*-

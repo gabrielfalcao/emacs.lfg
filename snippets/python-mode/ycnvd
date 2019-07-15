@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: srekinom
+# key: srekinom script
+# --
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-

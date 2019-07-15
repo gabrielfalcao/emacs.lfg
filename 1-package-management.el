@@ -14,12 +14,17 @@
 
 (package-initialize)
 
-;; I prefer installing packages with use-package since it makes easier
-;; to organize code by grouping a package’s installation with it’s
-;; configuration.
-(unless (package-installed-p 'use-package)
+(eval-when-compile
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d
   (package-refresh-contents)
-  (package-install 'use-package))
+  (package-install 'use-package)
+  (require 'use-package))
+
+;; ;; I prefer installing packages with use-package since it makes easier
+;; ;; to organize code by grouping a package’s installation with it’s
+;; ;; configuration.
+;; (unless (package-installed-p 'use-package)
+;;   )
 
 
 (setq use-package-always-ensure t)

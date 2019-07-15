@@ -1,4 +1,3 @@
-
 ;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (defun load-file-if-exists (file-name)
@@ -12,5 +11,8 @@
 (load-file-if-exists "2-shell.el")
 (load-file-if-exists "3-autocomplete.el")
 (load-file-if-exists "4-theme.el")
+(load-file-if-exists "5-mode-bindings.el")
+(load-file-if-exists "6-hooks.el")
+(load-file-if-exists "7-programming-tools.el")
 
 ;;(load-file "custom.el")

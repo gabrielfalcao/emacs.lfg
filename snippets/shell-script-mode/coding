@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: coding
+# key: coding
+# --
+#!/bin/bash
+# -*- coding: utf-8 -*-

@@ -197,12 +197,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
+ '(package-selected-packages
    (quote
-    ("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))))
+    (yasnippet-snippets yaml-mode web-mode use-package unicode-emoticons toml-mode terraform-mode sublime-themes sass-mode ruby-test-mode rjsx-mode restclient react-snippets python-mode protobuf-mode prettier-js php-mode nginx-mode markdown-mode lua-mode json-mode jira-markup-mode jinja2-mode golden-ratio go-mode flycheck-pycheckers flycheck-mypy expand-region exec-path-from-shell coffee-mode cask-package-toolset cask blacken))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(flymake-error ((t (:underline "tomato"))))
+ '(flymake-warning ((t (:underline (:color "firebrick" :style wave))))))
