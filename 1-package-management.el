@@ -12,13 +12,14 @@
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 
-(package-initialize)
 
-(eval-when-compile
-  ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (package-refresh-contents)
-  (package-install 'use-package)
-  (require 'use-package))
+(when (require 'use-package nil 'noerror)
+  (eval-when-compile
+    ;; Following line is not needed if use-package.el is in ~/.emacs.d
+    (package-refresh-contents)
+    (package-install 'use-package)
+    (require 'use-package)))
+
 
 ;; ;; I prefer installing packages with use-package since it makes easier
 ;; ;; to organize code by grouping a package’s installation with it’s

@@ -14,7 +14,6 @@
 (global-set-key [(ctrl c) (c)] 'comment-region)
 (global-set-key [(ctrl c) (d)] 'uncomment-region)
 
-
 (global-set-key (kbd "C-c u") 'uncomment-region)
 (global-set-key (kbd "C-c c") 'comment-region)
 (global-set-key (kbd "C-#") 'comment-region)
@@ -74,12 +73,12 @@
 (global-font-lock-mode 1)               ;; Always do syntax highlighting
 (transient-mark-mode 1)                 ;; highlight mark region
 
-(set-frame-font "Monaco-14")            ;; Font face/size
-(set-face-attribute 'default t :font "Monaco-14")
-;; (set-frame-font "Anonymous Pro-15")            ;; Font face/size
-;; (set-face-attribute 'default t :font "Anonymous Pro-15")
+(set-frame-font "Monaco-17")            ;; Font face/size
+(set-face-attribute 'default t :font "Monaco-17")
+;; (set-frame-font "Monaco-17")            ;; Font face/size
+;; (set-face-attribute 'default t :font "Monaco-17")
 
-(global-prettify-symbols-mode 1)        ;; See prettify-symbols-alist
+(global-prettify-symbols-mode 0)        ;; See prettify-symbols-alist
 
 (require 'linum)                        ;; show line numbers
 (global-linum-mode 1)
@@ -114,6 +113,10 @@
 ;;; before safe
 ;;; ~~~~~~~~~~~
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'after-init-hook #'global-emojify-mode)
+(set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)
+
+
 
 
 (defun uniquify-all-lines-region (start end)
@@ -133,3 +136,44 @@
   (uniquify-all-lines-region (point-min) (point-max)))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+
+(defun kill-all-buffers-force-modified ()
+  "*DANGEROUS* function that kills all the buffers mercilessly
+
+I suggest you to DO NOT bind it to any keyboard shortcut and
+please, be careful, once called, it can't be stopped!"
+  (interactive)
+  (mapcar #'(lambda (b)
+              (ignore-errors
+                (set-buffer-modified-p nil)
+                (revert-buffer 1 1))
+              (kill-buffer b))
+          (buffer-list)))
+
+
+(defun kill-all-buffers-mercilessly ()
+  "*DANGEROUS* function that kills all the buffers mercilessly
+
+I suggest you to DO NOT bind it to any keyboard shortcut and
+please, be careful, once called, it can't be stopped!"
+  (interactive)
+  (mapcar #'(lambda (b)
+              (ignore-errors
+                (set-buffer-modified-p nil)
+                (revert-buffer 1 1))
+              (kill-buffer b))
+          (buffer-list)))
+
+
+(setq
+ backup-by-copying t      ; don't clobber symlinks
+ backup-directory-alist
+ '(("." . "~/.emacs.backups"))    ; don't litter my fs tree
+ delete-old-versions t
+ kept-new-versions 10
+ kept-old-versions 10
+ version-control t)                ; use versioned backups
+
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))

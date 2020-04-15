@@ -1,8 +1,15 @@
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 (use-package go-mode)
 (use-package coffee-mode)
 (use-package jinja2-mode)
 (use-package jira-markup-mode)
 (use-package js2-mode)
+(use-package tide
+               :hook ((web-mode . tide-setup)))
 (use-package json-mode)
 (use-package lua-mode)
 (use-package markdown-mode)
@@ -17,8 +24,10 @@
 (use-package web-mode)
 (use-package yaml-mode)
 (use-package cask)
+(use-package elpy)
 (use-package cask-package-toolset)
-
+(use-package dockerfile-mode)
+(use-package jsonnet-mode)
 
 (add-to-list 'auto-mode-alist '("/bin/py/[^/.]*" . python-mode))
 (add-to-list 'auto-mode-alist '("^---$" . yaml-mode))
@@ -26,6 +35,7 @@
 (add-to-list 'auto-mode-alist '("/bin/sh/[^/.]*" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("/.flkwnlib/" . python-mode))
 (add-to-list 'auto-mode-alist '("/bashrc.d/" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("Dockerfile.*" . dockefile-mode))
 (add-to-list 'auto-mode-alist '("\\.sh$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.shell$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.bash$" . shell-script-mode))
@@ -33,6 +43,8 @@
 (add-to-list 'auto-mode-alist '("\\.j2$" . jinja2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.json-*$" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.jsonnet$" . jsonnet-mode))
+(add-to-list 'auto-mode-alist '("\\.libsonnet$" . jsonnet-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode)) ; salt stack
 
@@ -45,8 +57,11 @@
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))            ;; PHP
 (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))             ;; Javascript and ES6
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))            ;; Javascript and ES6
+(add-to-list 'auto-mode-alist '("\\.tsx?$" . typescript-mode))     ;; Javascript and ES6
 (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode))     ;; Protobuf (GRPC)
-(add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-web-mode)
+(add-hook 'typescript-mode-hook 'prettier-js-mode)
+
 
 (add-to-list 'auto-mode-alist '("\\.tf$" . terraform-mode))       ;; Terraform
 
