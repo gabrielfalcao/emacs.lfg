@@ -197,8 +197,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-python-flake8-executable "python3")
+ '(flycheck-python-pycompile-executable "python3")
  '(package-selected-packages
-   '(yasnippet-snippets yaml-mode web-mode use-package unicode-emoticons toml-mode tide terraform-mode sublime-themes sass-mode ruby-test-mode rjsx-mode restclient react-snippets python-mode protobuf-mode prettier-js php-mode nginx-mode markdown-mode lua-mode jsonnet-mode json-mode jira-markup-mode jinja2-mode golden-ratio go-mode flycheck-pycheckers flycheck-mypy expand-region exec-path-from-shell elpy editorconfig dockerfile-mode coffee-mode cask-package-toolset cask blacken)))
+   '(rust-mode company-tabnine ansi package-build shut-up epl git commander f dash s)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

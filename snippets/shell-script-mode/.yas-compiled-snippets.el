@@ -17,4 +17,4 @@
                        ("!env" "#!/usr/bin/env `(file-name-nondirectory (getenv \"SHELL\"))`\n" "#!/usr/bin/env $SHELL" nil nil nil "/Users/gabrielfalcao/.emacs.d/snippets/shell-script-mode/!env.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Mon Sep  3 20:59:18 2018
+;;; Do not edit! File generated at Thu May 27 20:21:19 2021

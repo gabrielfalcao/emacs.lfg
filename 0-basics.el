@@ -1,3 +1,6 @@
+(setq exec-path (append exec-path '(":/Users/gabrielfalcao/usr/bin:/Applications/Emacs.app/Contents/MacOS/bin/:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/opt/go@1.14/bin:/Users/gabrielfalcao/.nvm/versions/node/v14.13.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin")))
+(setenv "PATH" (concat (getenv "PATH") ":/Users/gabrielfalcao/usr/bin:/Applications/Emacs.app/Contents/MacOS/bin/:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/opt/go@1.14/bin:/Users/gabrielfalcao/.nvm/versions/node/v14.13.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin"))
+
 ;; disable ugly scrollbar, toolbar and menu
 (scroll-bar-mode 0)
 (menu-bar-mode 0)
@@ -73,10 +76,10 @@
 (global-font-lock-mode 1)               ;; Always do syntax highlighting
 (transient-mark-mode 1)                 ;; highlight mark region
 
-(set-frame-font "Monaco-17")            ;; Font face/size
-(set-face-attribute 'default t :font "Monaco-17")
-;; (set-frame-font "Monaco-17")            ;; Font face/size
-;; (set-face-attribute 'default t :font "Monaco-17")
+(set-frame-font "Monaco-18")            ;; Font face/size
+(set-face-attribute 'default t :font "Monaco-18")
+;; (set-frame-font "Monaco-19")            ;; Font face/size
+;; (set-face-attribute 'default t :font "Monaco-19")
 
 (global-prettify-symbols-mode 0)        ;; See prettify-symbols-alist
 
@@ -150,6 +153,11 @@ please, be careful, once called, it can't be stopped!"
                 (revert-buffer 1 1))
               (kill-buffer b))
           (buffer-list)))
+
+(defun pytest-strip-diff ()
+  (interactive)
+  (while (re-search-forward "^E\s-+[+]\s-*" nil t)
+  (replace-match "")))
 
 
 (defun kill-all-buffers-mercilessly ()
